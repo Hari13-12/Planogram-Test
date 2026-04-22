@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: planogram-service
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ROBOFLOW_API_KEY
+        sync: false
+      - key: ROBOFLOW_API_URL
+        sync: false
+    

@@ -1,0 +1,13 @@
+fastapi[standard]
+pydantic_settings
+opencv-python-headless
+pillow
+onnxruntime
+git+https://github.com/trainyolo/YOLO-ONNX.git
+matplotlib
+numpy 
+aiofiles
+python-multipart
+pandas
+openpyxl
+inference-sdk
