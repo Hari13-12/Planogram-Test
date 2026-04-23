@@ -34,7 +34,7 @@ async def get_analyzer():
 
 
 @router.post("/analyze-planogram")
-async def analyze_planogram(org_id: str = Form(...), file: UploadFile = File(...)):
+async def analyze_planogram(org_id: str = Form(...), image: UploadFile = File(...)):
     """
     Upload an image and get planogram analysis
     """
@@ -46,11 +46,11 @@ async def analyze_planogram(org_id: str = Form(...), file: UploadFile = File(...
         )
     try:
         # Validate file type
-        if not file.content_type.startswith("image/"):
+        if not image.content_type.startswith("image/"):
             raise HTTPException(status_code=400, detail="File must be an image")
 
         # Read image
-        contents = await file.read()
+        contents = await image.read()
         image = Image.open(io.BytesIO(contents))
 
         # Get analyzer
