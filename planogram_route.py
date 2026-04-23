@@ -59,15 +59,15 @@ async def analyze_planogram(org_id: str = Form(...), file: UploadFile = File(...
         # Run analysis
         results = await analyzer_instance.results(image)
 
-        # return JSONResponse(content=results)
-        return JSONResponse(
-                status_code=200,
-                content={
-                    "data":{
-                        "result": result
-                    }
-                }
-            )
+        return JSONResponse(content=results)
+        # return JSONResponse(
+        #         status_code=200,
+        #         content={
+        #             "data":{
+        #                 "result": results
+        #             }
+        #         }
+        #     )
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
