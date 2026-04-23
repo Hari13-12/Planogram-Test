@@ -39,7 +39,7 @@ async def analyze_planogram(org_id: str = Form(...), file: UploadFile = File(...
     Upload an image and get planogram analysis
     """
 
-     if org_id != "test":
+    if org_id != "test":
         return JSONResponse(
             status_code=400,
             content={"detail": "Invalid organization ID"}
